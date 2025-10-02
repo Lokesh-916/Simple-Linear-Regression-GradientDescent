@@ -40,3 +40,17 @@ class SimpleLinearRegressionGD:
         print("\nDataset Info:")
         print(self.df.describe())
 
+
+df = pd.DataFrame({
+    "Feature": [100, 120, 140, 160, 180, 200],
+    "Target": [10, 15, 20, 25, 30, 35]
+})
+
+model = SimpleLinearRegressionGD(df, alpha=0.01, epochs=1000)
+arr = model.preprocess()
+model.train()
+model.summary()
+
+print("\nPredictions:")
+print("For Feature=150:", model.predict(150))
+print("For Feature=200:", model.predict(200))
